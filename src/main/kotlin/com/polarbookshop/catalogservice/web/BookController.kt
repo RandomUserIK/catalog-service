@@ -1,4 +1,4 @@
-package com.polarbookshop.catalogservice.controller
+package com.polarbookshop.catalogservice.web
 
 import com.polarbookshop.catalogservice.domain.Book
 import com.polarbookshop.catalogservice.domain.BookService
