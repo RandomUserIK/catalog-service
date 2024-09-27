@@ -11,7 +11,7 @@ internal class BookValidationTests {
     @Test
     fun whenAllFieldsCorrectThenValidationSucceeds() {
         // GIVEN
-        val book = Book("1234567890", "Title", "Author", 9.90)
+        val book = Book.of("1234567890", "Title", "Author", 9.90)
 
         // WHEN
         val result = validator.validate(book)
@@ -23,7 +23,7 @@ internal class BookValidationTests {
     @Test
     fun whenIsbnDefinedButIncorrectThenValidationFails() {
         // GIVEN
-        val book = Book("a234567890", "Title", "Author", 9.90)
+        val book = Book.of("a234567890", "Title", "Author", 9.90)
 
         // WHEN
         val result = validator.validate(book)

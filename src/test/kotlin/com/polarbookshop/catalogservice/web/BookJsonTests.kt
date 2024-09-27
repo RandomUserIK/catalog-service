@@ -14,7 +14,7 @@ internal class BookJsonTests(
     @Test
     fun testSerialize() {
         // GIVEN
-        val book = Book("1234567890", "Title", "Author", 9.90)
+        val book = Book.of("1234567890", "Title", "Author", 9.90)
 
         // WHEN
         val result = json.write(book)
@@ -29,7 +29,7 @@ internal class BookJsonTests(
     fun testDeserialize() {
         // GIVEN
         val content = "{\"isbn\":\"1234567890\",\"title\":\"Title\",\"author\":\"Author\",\"price\":9.9}"
-        val expected = Book("1234567890", "Title", "Author", 9.90)
+        val expected = Book.of("1234567890", "Title", "Author", 9.90)
 
         // WHEN
         val result = json.parse(content)
