@@ -14,20 +14,21 @@ class BookDataLoader(
 ) {
     @EventListener(ApplicationReadyEvent::class)
     fun loadBookTestData() {
-        bookRepository.save(
-            Book(
-                "1234567891",
-                "Northern Lights",
-                "Lyra Silverstar",
-                9.90
-            )
-        )
-        bookRepository.save(
-            Book(
-                "1234567892",
-                "Polar Journey",
-                "Iorek Polarson",
-                12.90
+        bookRepository.deleteAll()
+        bookRepository.saveAll(
+            listOf(
+                Book.of(
+                    "1234567891",
+                    "Northern Lights",
+                    "Lyra Silverstar",
+                    9.90
+                ),
+                Book.of(
+                    "1234567892",
+                    "Polar Journey",
+                    "Iorek Polarson",
+                    12.90
+                )
             )
         )
     }
