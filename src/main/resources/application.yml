@@ -14,7 +14,6 @@ spring:
   profiles:
     active:
       - testdata
-      -
   config:
     import: "optional:configserver:"
 
@@ -29,6 +28,10 @@ spring:
         initial-interval: 1000 # 1s
         max-interval: 2000 # 2s
         multiplier: 1.1
+
+  sql:
+    init:
+      mode: always
 
   datasource:
     username: user
