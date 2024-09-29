@@ -21,7 +21,7 @@ internal class BookJsonTests(
 
         // THEn
         result.apply {
-            this.json shouldBe "{\"isbn\":\"1234567890\",\"title\":\"Title\",\"author\":\"Author\",\"price\":9.9}"
+            this.json shouldBe "{\"id\":null,\"isbn\":\"1234567890\",\"title\":\"Title\",\"author\":\"Author\",\"price\":9.9,\"version\":0,\"createdDate\":null,\"lastModifiedDate\":null}"
         }
     }
 
