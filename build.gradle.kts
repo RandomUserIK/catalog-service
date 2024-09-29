@@ -33,6 +33,8 @@ dependencies {
 	implementation("org.springframework.retry:spring-retry")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.flywaydb:flyway-core")
+	implementation("org.flywaydb:flyway-database-postgresql")
 
 	runtimeOnly("org.postgresql:postgresql")
 
