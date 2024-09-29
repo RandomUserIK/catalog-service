@@ -24,7 +24,7 @@ class CatalogServiceApplicationTests(
     @Test
     fun whenPostRequestThenBookCreated() {
         // GIVEN
-        val expected = Book.of("1231231231", "Title", "Author", 9.90)
+        val expected = Book.of("1231231231", "Title", "Author", 9.90, "Polarsophia")
 
         // WHEN
         webTestClient
@@ -43,6 +43,7 @@ class CatalogServiceApplicationTests(
                     title shouldBe expected.title
                     author shouldBe expected.author
                     price shouldBe expected.price
+                    publisher shouldBe expected.publisher
                 }
             }
     }

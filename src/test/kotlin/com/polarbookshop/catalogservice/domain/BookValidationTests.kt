@@ -1,6 +1,5 @@
 package com.polarbookshop.catalogservice.domain
 
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import jakarta.validation.Validation
 import org.junit.jupiter.api.Test
@@ -11,7 +10,7 @@ internal class BookValidationTests {
     @Test
     fun whenAllFieldsCorrectThenValidationSucceeds() {
         // GIVEN
-        val book = Book.of("1234567890", "Title", "Author", 9.90)
+        val book = Book.of("1234567890", "Title", "Author", 9.90, "Polarsophia")
 
         // WHEN
         val result = validator.validate(book)
@@ -23,7 +22,7 @@ internal class BookValidationTests {
     @Test
     fun whenIsbnDefinedButIncorrectThenValidationFails() {
         // GIVEN
-        val book = Book.of("a234567890", "Title", "Author", 9.90)
+        val book = Book.of("a234567890", "Title", "Author", 9.90, "Polarsophia")
 
         // WHEN
         val result = validator.validate(book)
