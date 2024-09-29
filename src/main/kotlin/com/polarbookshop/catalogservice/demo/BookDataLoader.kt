@@ -21,13 +21,15 @@ class BookDataLoader(
                     "1234567891",
                     "Northern Lights",
                     "Lyra Silverstar",
-                    9.90
+                    9.90,
+                    "Polarsophia",
                 ),
                 Book.of(
                     "1234567892",
                     "Polar Journey",
                     "Iorek Polarson",
-                    12.90
+                    12.90,
+                    "Polarsophia",
                 )
             )
         )

@@ -31,6 +31,8 @@ data class Book(
     @field:Positive(message = "The book price must be greater than zero.")
     val price: Double,
 
+    val publisher: String? = null,
+
     @Version
     val version: Int = 0,
 
@@ -41,12 +43,13 @@ data class Book(
     val lastModifiedDate: Instant? = null,
 ) {
     companion object {
-        fun of(isbn: String, title: String, author: String, price: Double) =
+        fun of(isbn: String, title: String, author: String, price: Double, publisher: String?) =
             Book(
                 isbn = isbn,
                 title = title,
                 author = author,
                 price = price,
+                publisher = publisher,
             )
     }
 }

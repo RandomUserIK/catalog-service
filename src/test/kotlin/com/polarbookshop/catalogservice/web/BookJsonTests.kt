@@ -14,22 +14,23 @@ internal class BookJsonTests(
     @Test
     fun testSerialize() {
         // GIVEN
-        val book = Book("1234567890", "Title", "Author", 9.90)
+        val book = Book.of("1234567890", "Title", "Author", 9.90, "Polarsophia")
 
         // WHEN
         val result = json.write(book)
 
         // THEn
         result.apply {
-            this.json shouldBe "{\"isbn\":\"1234567890\",\"title\":\"Title\",\"author\":\"Author\",\"price\":9.9}"
+            this.json shouldBe "{\"id\":null,\"isbn\":\"1234567890\",\"title\":\"Title\",\"author\":\"Author\",\"price\":9.9,\"publisher\":\"Polarsophia\",\"version\":0,\"createdDate\":null,\"lastModifiedDate\":null}"
         }
     }
 
     @Test
     fun testDeserialize() {
         // GIVEN
-        val content = "{\"isbn\":\"1234567890\",\"title\":\"Title\",\"author\":\"Author\",\"price\":9.9}"
-        val expected = Book("1234567890", "Title", "Author", 9.90)
+        val content =
+            "{\"isbn\":\"1234567890\",\"title\":\"Title\",\"author\":\"Author\",\"price\":9.9, \"publisher\": \"Polarsophia\"}"
+        val expected = Book.of("1234567890", "Title", "Author", 9.90, "Polarsophia")
 
         // WHEN
         val result = json.parse(content)

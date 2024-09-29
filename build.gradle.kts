@@ -11,6 +11,7 @@ group = "com.polarbookshop"
 version = "0.0.1-SNAPSHOT"
 
 extra["springCloudVersion"] = "2023.0.3"
+extra["testContainersVersion"] = "1.17.3"
 
 java {
 	toolchain {
@@ -32,6 +33,8 @@ dependencies {
 	implementation("org.springframework.retry:spring-retry")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.flywaydb:flyway-core")
+	implementation("org.flywaydb:flyway-database-postgresql")
 
 	runtimeOnly("org.postgresql:postgresql")
 
@@ -39,6 +42,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-webflux")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testImplementation("io.kotest:kotest-assertions-core-jvm:${property("kotest-assertions-core.version")}")
+	testImplementation("org.testcontainers:postgresql")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
 	kapt("org.springframework.boot:spring-boot-configuration-processor")
@@ -47,6 +51,7 @@ dependencies {
 dependencyManagement {
 	imports {
 		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+		mavenBom("org.testcontainers:testcontainers-bom:${property("testContainersVersion")}")
 	}
 }
 

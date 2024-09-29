@@ -29,10 +29,6 @@ spring:
         max-interval: 2000 # 2s
         multiplier: 1.1
 
-  sql:
-    init:
-      mode: always
-
   datasource:
     username: user
     password: password
