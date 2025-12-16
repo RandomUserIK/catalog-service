@@ -31,4 +31,6 @@ data class Book(
 	val createdDate: Instant? = null,
 
 	val lastModifiedDate: Instant? = null,
+
+	val publisher: String? = null,
 )
