@@ -33,8 +33,11 @@ dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-config")
 	implementation("org.springframework.retry:spring-retry")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+	runtimeOnly("org.postgresql:postgresql")
 
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
@@ -43,6 +46,7 @@ dependencies {
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testImplementation("io.kotest:kotest-assertions-core-jvm:${property("kotest.version")}")
 	testImplementation("io.kotest:kotest-assertions-json:${property("kotest.version")}")
+	testImplementation("org.testcontainers:postgresql")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
@@ -55,6 +59,7 @@ kotlin {
 dependencyManagement {
 	imports {
 		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("spring-cloud.version")}")
+		mavenBom("org.testcontainers:testcontainers-bom:${property("testcontainers.version")}")
 	}
 }
 
