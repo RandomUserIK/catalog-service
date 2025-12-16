@@ -29,6 +29,8 @@ data class BookEntity(
 
 	@LastModifiedDate
 	val lastModifiedDate: Instant,
+
+	val publisher: String?,
 )
 
 internal fun BookEntity.toDomain() =
@@ -41,6 +43,7 @@ internal fun BookEntity.toDomain() =
 		price = price,
 		createdDate = createdDate,
 		lastModifiedDate = lastModifiedDate,
+		publisher = publisher,
 	)
 
 internal fun Book.toEntity() =
@@ -53,4 +56,5 @@ internal fun Book.toEntity() =
 		price = price,
 		createdDate = createdDate ?: Instant.now(),
 		lastModifiedDate = lastModifiedDate ?: Instant.now(),
+		publisher = publisher,
 	)
