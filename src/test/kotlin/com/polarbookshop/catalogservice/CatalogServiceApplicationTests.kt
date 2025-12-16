@@ -1,16 +1,18 @@
 package com.polarbookshop.catalogservice
 
-import com.polarbookshop.catalogservice.domain.Book
+import com.polarbookshop.catalogservice.domain.model.Book
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.reactive.server.WebTestClient
 import org.springframework.test.web.reactive.server.expectBody
 
 @SpringBootTest(
 	webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
 )
+@ActiveProfiles("integration")
 class CatalogServiceApplicationTests @Autowired constructor(
 	private val webTestClient: WebTestClient,
 ) {

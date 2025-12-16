@@ -1,5 +1,6 @@
 package com.polarbookshop.catalogservice.domain
 
+import com.polarbookshop.catalogservice.domain.model.Book
 import io.kotest.assertions.json.shouldContainJsonKeyValue
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
