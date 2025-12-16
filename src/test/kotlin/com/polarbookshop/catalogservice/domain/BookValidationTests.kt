@@ -1,5 +1,6 @@
 package com.polarbookshop.catalogservice.domain
 
+import com.polarbookshop.catalogservice.domain.model.Book
 import io.kotest.matchers.shouldBe
 import jakarta.validation.Validation
 import org.junit.jupiter.api.Test

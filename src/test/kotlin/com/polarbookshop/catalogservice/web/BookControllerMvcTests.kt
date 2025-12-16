@@ -1,6 +1,6 @@
 package com.polarbookshop.catalogservice.web
 
-import com.polarbookshop.catalogservice.domain.BookNotFoundException
+import com.polarbookshop.catalogservice.domain.exception.BookNotFoundException
 import com.polarbookshop.catalogservice.domain.BookService
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given

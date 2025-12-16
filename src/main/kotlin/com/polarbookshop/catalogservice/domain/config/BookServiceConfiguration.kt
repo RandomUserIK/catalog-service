@@ -1,6 +1,7 @@
 package com.polarbookshop.catalogservice.domain.config
 
-import com.polarbookshop.catalogservice.domain.BookRepository
+import com.polarbookshop.catalogservice.domain.BookCrudApi
+import com.polarbookshop.catalogservice.persistence.repository.BookRepository
 import com.polarbookshop.catalogservice.domain.BookService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -10,8 +11,8 @@ class BookServiceConfiguration {
 
 	@Bean
 	fun bookService(
-		bookRepository: BookRepository,
+		bookCrudApi: BookCrudApi,
 	) = BookService(
-		bookRepository,
+		bookCrudApi,
 	)
 }
