@@ -13,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.context.annotation.Import
 import org.springframework.data.jdbc.core.JdbcAggregateTemplate
+import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.context.ActiveProfiles
 
 @DataJdbcTest
@@ -48,5 +49,50 @@ internal class BookRepositoryJdbcTests @Autowired constructor(
 		// THEN
 		actualBook shouldNotBe null
 		actualBook?.isbn shouldBe bookIsbn
+	}
+
+	@Test
+	fun whenCreateBookNotAuthenticatedThenNoAuditMetadata() {
+		// GIVEN
+		val bookIsbn = "1234561237"
+		val domain = Book(
+			isbn = bookIsbn,
+			title = "Blood Meridian",
+			author = "Cormac McCarthy",
+			price = 9.90,
+		)
+		val entity = domain.toEntity()
+
+		// WHEN
+		val result = bookRepository.save(entity)
+
+		// THEN
+		result.apply {
+			createdBy shouldBe null
+			lastModifiedBy shouldBe null
+		}
+	}
+
+	@Test
+	@WithMockUser("john")
+	fun whenCreateBookAuthenticatedThenAuditMetadata() {
+		// GIVEN
+		val bookIsbn = "1234561237"
+		val domain = Book(
+			isbn = bookIsbn,
+			title = "Blood Meridian",
+			author = "Cormac McCarthy",
+			price = 9.90,
+		)
+		val entity = domain.toEntity()
+
+		// WHEN
+		val result = bookRepository.save(entity)
+
+		// THEN
+		result.apply {
+			createdBy shouldBe "john"
+			lastModifiedBy shouldBe "john"
+		}
 	}
 }

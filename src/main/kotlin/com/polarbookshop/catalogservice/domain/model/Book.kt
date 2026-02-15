@@ -3,6 +3,7 @@ package com.polarbookshop.catalogservice.domain.model
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Positive
+import org.springframework.data.annotation.LastModifiedBy
 import java.time.Instant
 
 data class Book(
@@ -33,4 +34,8 @@ data class Book(
 	val lastModifiedDate: Instant? = null,
 
 	val publisher: String? = null,
+
+	val createdBy: String? = null,
+
+	val lastModifiedBy: String? = null,
 )
