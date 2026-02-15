@@ -1,8 +1,10 @@
 package com.polarbookshop.catalogservice.persistence.model
 
 import com.polarbookshop.catalogservice.domain.model.Book
+import org.springframework.data.annotation.CreatedBy
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
+import org.springframework.data.annotation.LastModifiedBy
 import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.annotation.Version
 import org.springframework.data.relational.core.mapping.Table
@@ -31,6 +33,12 @@ data class BookEntity(
 	val lastModifiedDate: Instant,
 
 	val publisher: String?,
+
+	@CreatedBy
+	val createdBy: String?,
+
+	@LastModifiedBy
+	val lastModifiedBy: String?,
 )
 
 internal fun BookEntity.toDomain() =
@@ -44,6 +52,8 @@ internal fun BookEntity.toDomain() =
 		createdDate = createdDate,
 		lastModifiedDate = lastModifiedDate,
 		publisher = publisher,
+		createdBy = createdBy,
+		lastModifiedBy = lastModifiedBy,
 	)
 
 internal fun Book.toEntity() =
@@ -57,4 +67,6 @@ internal fun Book.toEntity() =
 		createdDate = createdDate ?: Instant.now(),
 		lastModifiedDate = lastModifiedDate ?: Instant.now(),
 		publisher = publisher,
+		createdBy = createdBy,
+		lastModifiedBy = lastModifiedBy,
 	)
