@@ -41,8 +41,10 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.flywaydb:flyway-core")
 	implementation("org.flywaydb:flyway-database-postgresql")
+	implementation("io.github.oshai:kotlin-logging-jvm:${property("kotlin-logging-jvm.version")}")
 
 	runtimeOnly("org.postgresql:postgresql")
+	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 

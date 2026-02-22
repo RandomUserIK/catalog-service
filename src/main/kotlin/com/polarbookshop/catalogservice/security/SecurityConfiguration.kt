@@ -20,6 +20,8 @@ class SecurityConfiguration {
 		http
 			.authorizeHttpRequests {
 				it
+					.requestMatchers("/actuator/**")
+					.permitAll()
 					.requestMatchers(HttpMethod.GET, "/", "/books/**")
 					.permitAll()
 					.anyRequest()
