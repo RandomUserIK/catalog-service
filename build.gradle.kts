@@ -45,6 +45,7 @@ dependencies {
 
 	runtimeOnly("org.postgresql:postgresql")
 	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+	runtimeOnly("io.opentelemetry.javaagent:opentelemetry-javaagent:${property("open-telemetry.version")}")
 
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
